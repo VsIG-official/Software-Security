@@ -1,5 +1,3 @@
-'use strict'
-
 const uuid = require('uuid');
 const express = require('express');
 const onFinished = require('on-finished');
@@ -57,6 +55,9 @@ class Session {
         this.#storeSessions();
     }
 }
+
+// just deleted operations with cookies
+// sessions is based on the headers
 
 const sessions = new Session();
 

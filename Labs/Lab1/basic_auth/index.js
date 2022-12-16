@@ -1,11 +1,11 @@
-'use strict'
-
 const express = require('express')
 const app = express()
 const port = 3000
 
 app.use((req, res, next) => {
     console.log('\n=======================================================\n');
+
+    // Middleware - something, which intercepts thr stream
 
     const authorizationHeader = req.get('Authorization');
     console.log('authorizationHeader', authorizationHeader);
@@ -36,10 +36,12 @@ app.use((req, res, next) => {
     res.send('Unauthorized');
 });
 
+// Single action / controller
 app.get('/', (req, res) => {
     res.send(`Hello ${req.login}`);
 })
 
+// Works on specific port
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
 })

@@ -1,5 +1,3 @@
-'use strict'
-
 const uuid = require('uuid');
 const express = require('express');
 const cookieParser = require('cookie-parser');
@@ -62,11 +60,15 @@ class Session {
     }
 }
 
+// try to find session
+
 const sessions = new Session();
 
 app.use((req, res, next) => {
     let currentSession = {};
     let sessionId;
+
+    // search for session
 
     if (req.cookies[SESSION_KEY]) {
         sessionId = req.cookies[SESSION_KEY];
@@ -78,6 +80,8 @@ app.use((req, res, next) => {
     } else {
         sessionId = sessions.init(res);
     }
+
+    // create new session
 
     req.session = currentSession;
     req.sessionId = sessionId;

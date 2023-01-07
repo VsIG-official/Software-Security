@@ -4,10 +4,10 @@ const path = require('path');
 const port = 3000;
 const jwt = require('jsonwebtoken');
 const config = require('./config');
-const getAppToken = require('./utils/auth0/app-token');
-const getUserToken = require('./utils/auth0/user-token');
-const getUser = require('./utils/auth0/user-get');
-const getPublicKey = require('./utils/auth0/pem-get');
+const getAppToken = require('./auth0/app-token');
+const getUserToken = require('./auth0/user-token');
+const getUser = require('./auth0/user-get');
+const getPublicKey = require('./auth0/pem-get');
 
 const app = express();
 app.use(bodyParser.json());

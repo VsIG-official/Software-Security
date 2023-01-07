@@ -48,21 +48,6 @@ app.get('/logout', (req, res) => {
     res.redirect('/');
 });
 
-const users = [
-    {
-        login: 'Login',
-        password: 'Password',
-        username: 'Username',
-        email: 'mail',
-    },
-    {
-        login: 'Valentyn',
-        password: 'vsig',
-        username: 'Dominskyi',
-        email: 'mail',
-    }
-]
-
 app.post('/api/login', async (req, res) => {
     const { login, password } = req.body;
 
@@ -77,10 +62,6 @@ app.post('/api/login', async (req, res) => {
         console.log(error)
     }
 });
-
-function CreateJWT(user) {
-    return jwt.sign(user, 'process.env.ACCESS_TOKEN_SECRET', { expiresIn: '1m' })
-  }
 
 app.listen(config.port, async () => {
     console.log(`Example app listening on port ${port}`);
